@@ -40,10 +40,10 @@ def test_create_user_with_valid_email():
     assert response.status_code == 201
     assert isinstance(response.json(), int)
 
-    # get_response = client.get("/api/v1/user", params={'email': new_user['email']})
-    # assert get_response.status_code == 200
-    # assert get_response.json()['email'] == new_user['email']
-    # assert get_response.json()['name'] == new_user['name']
+    get_response = client.get("/api/v1/user", params={'email': new_user['email']})
+    assert get_response.status_code == 200
+    assert get_response.json()['email'] == new_user['email']
+    assert get_response.json()['name'] == new_user['name']
 
 def test_create_user_with_invalid_email():
     '''Создание пользователя с почтой, которую использует другой пользователь'''
